@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
+import {Switch} from 'react-router-dom';
+import RouteHandler from './components/RouteHandler';
+import Login from './pages/Login';
+import FirstUser from './pages/Users/FirstUser';
+import RememberPass from './pages/RememberPass';
+import Main from './components/Main';
+import {BrowserRouter} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Switch>
+            <RouteHandler exact path="/login">
+                <Login/>
+            </RouteHandler>
+
+            <RouteHandler exact path="/first_user">
+                <FirstUser/>
+            </RouteHandler>
+
+            <RouteHandler exact path="/remember_password/:tokenPass">
+                <RememberPass/>
+            </RouteHandler>
+            
+            <Main/>
+            
+          </Switch>
+      </BrowserRouter>
   );
 }
 
