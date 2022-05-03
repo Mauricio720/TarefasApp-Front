@@ -5,7 +5,7 @@ O front end no mini projeto de tarefas. O objetivo desse projeto foi treinar o R
 # Instalação
   Primeiro usar o comando npm install para poder instalar os pacotes. Essa é a versão do front end do projeto, para funcionar, precisa da API feita em laravel além claro do node instalado. Há uma api ja hospedada em um servidor e ja está na  variavel de configuração, caso não funcione, você pode utilizar a api disponibilizada.
 Basta agora usar o comando npm start e iniciar a aplicação caso esteja utilizando ela localmente. Se não, use o npm build start, pegue a pasta build e utilize no seu servidor.
-  
-API em laravel
+
+# Api em Laravel para funcionamento do projeto
 A api desse projeto também está disponivel caso queira utilizar https://github.com/Mauricio720/TarefasApp-Api e tem o passo a passo para fazer funcionar. Caso queira utiliza-la, escolha se vai colocar em uma hospedagem ou se vai utilizar localmente. De qualquer maneira, entre no projeto e mude a const BASEAPI="para o endereço onde colocou a api" no arquivo API.js.
 
