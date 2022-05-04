@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {HeaderContainer} from './styled.js';
 import {Link} from 'react-router-dom';
 import profileIcon from './../../../images/profile.png';
