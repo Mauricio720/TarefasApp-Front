@@ -26,6 +26,7 @@ const Login=()=>{
     const [visibleModal,setVisibleModal]=useState(false);
     const [emailPassword,setEmailPassword]=useState("");
 
+    /*
     useEffect(()=>{
         const loginFacebook=async()=>{
             setLoading(true);
@@ -95,7 +96,7 @@ const Login=()=>{
         }
 
     },[responseGoogle])
-   
+   */
     const loginSubmit=async (e)=>{
         e.preventDefault();
         setLoading(true);
@@ -203,36 +204,9 @@ const Login=()=>{
                     </form>
                 </div>
                 <div className="login__registers">
-                    <GoogleLogin
-                        clientId="740765700687-lte4pdqrc1rrqa1nsd4c27qmd3jlevmm.apps.googleusercontent.com"
-                        render={renderProps => (
-                            <div onClick={renderProps.onClick} className="registers__item">
-                                    <div className="registers__icon">
-                                        <img src={googleIcon} alt="icon"/>
-                                    </div>
-                                    Login com Google
-                                </div>
-                        )}
-                        autoLoad={false}
-                        onSuccess={setResponseGoogle}
-                        
-                    />
                     
-                   <FacebookLogin
-                        appId="342167400862475"
-                        fields="name,email,picture"
-                        callback={setResponseFacebook}
-                        render={renderProps => (
-                            <div onClick={renderProps.onClick}className="registers__item">
-                                <div className="registers__icon">
-                                    <img src={facebookIcon} alt="icon"/>
-                                </div>
-                                Login com Facebook
-                            </div>
-                        )}
-                        
-                    />
-                  
+                   
+                    
                 </div>
 
                 <Link to="first_user" className="register__btn">Não tem uma conta? Cadastre-se</Link>

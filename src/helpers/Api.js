@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import qs from 'qs';
 import {getUser} from './../helpers/AuthHandler';
 
-const BASEAPI='http://192.168.15.68:8000/api/';
+const BASEAPI='http://apitarefas.mauridesenvolvedor.com/api/';
 
 const verifyToken=(body,fetchFile=false)=>{
     var token="";
