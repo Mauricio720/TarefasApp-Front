@@ -3,19 +3,20 @@ import {PageArea} from './styled.js';
 import logo from './../../images/Logo.jpg';
 import userIcon from './../../images/user.png';
 import passIcon from './../../images/key.png';
-import googleIcon from './../../images/google.png';
-import facebookIcon from './../../images/facebook.png';
-import {Link} from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import GoogleLogin from 'react-google-login';
+
+import {Link,useLocation} from 'react-router-dom';
+
 import useApi from './../../helpers/Api';
 import {doLogin,setUser,setConquest,setTotalSuccessTask} from './../../helpers/AuthHandler';
 import swal from 'sweetalert';
 import Spinner from 'react-spinner-material';
 import Modal from './../../components/myComponents/Modal';
+import { useQuery } from '../../hooks/useQuery';
+
 
 
 const Login=()=>{
+    
     const api=useApi();
     const [login,setLogin]=useState("");
     const [password,setPassword]=useState("");
@@ -25,78 +26,19 @@ const Login=()=>{
     const [firstLoadFacebook,setFirstLoadFacebook]=useState(true);
     const [visibleModal,setVisibleModal]=useState(false);
     const [emailPassword,setEmailPassword]=useState("");
+    const query=useQuery();
 
-    /*
-    useEffect(()=>{
-        const loginFacebook=async()=>{
-            setLoading(true);
-            let json=await api.login(null,null,responseFacebook,null);
-            if(json.error){
-                swal({
-                    text: json.error,
-                    icon: "error",
-                });
-            }else{
-                doLogin(json.token);
-                
-                let userInfo=await api.getUser();
-                if(userInfo.error){
-                    swal({
-                        text: json.error,
-                        icon: "error",
-                    });
-                    setLoading(false);
-                }else{
-                    setUser(userInfo.user);
-                    setConquest(userInfo.totalConquest);
-                    setTotalSuccessTask(userInfo.taskSuccess);
-                    window.location="/";
-                }
-            }
-        }
-        if(firstLoadFacebook===false){
-            loginFacebook();
-        }
-
-        setFirstLoadFacebook(false);
-        
-    },[responseFacebook])
 
     useEffect(()=>{
-        const loginGoogle=async()=>{
-            setLoading(true);
-            let json=await api.login(null,null,null,responseGoogle);
-            if(json.error){
-                swal({
-                    text: json.error,
-                    icon: "error",
-                });
-                setLoading(false);
-            }else{
-                doLogin(json.token);
-                
-                let userInfo=await api.getUser();
-                if(userInfo.error){
-                    swal({
-                        text: json.error,
-                        icon: "error",
-                    });
-                    setLoading(false);
-                }else{
-                    setUser(userInfo.user);
-                    setConquest(userInfo.totalConquest);
-                    setTotalSuccessTask(userInfo.taskSuccess);
-                    window.location="/";
-                }
-            }
-        }
-        
-        if(responseGoogle){
-            loginGoogle();
-        }
+        VerifyMobileRememberPass();
+    },[]);
 
-    },[responseGoogle])
-   */
+    const VerifyMobileRememberPass=()=>{
+        if(query.get('mobile')){
+            setVisibleModal(true);
+        }
+    }
+
     const loginSubmit=async (e)=>{
         e.preventDefault();
         setLoading(true);

@@ -164,7 +164,7 @@ const Api={
     },
 
     deleteObjective:async (id)=>{
-        let json=await apiFetchPost('delete_objective/',{id});
+        let json=await apiFetchPost('delete_objective',{id});
         return json;
     },
     
