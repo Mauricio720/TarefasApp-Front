@@ -94,7 +94,7 @@ const Login = () => {
   return (
     <PageArea>
       <Modal visible={visibleModal} setVisible={setVisibleModal}>
-        <h2>Recuperação de Senha</h2>
+        <h2 className="title">Recuperação de Senha</h2>
         <form
           className="form_forgotPassword"
           onSubmit={(e) => {

@@ -8,6 +8,14 @@ export const PageArea = styled.div`
   background-color: #006a9c;
   overflow: hidden;
 
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 2px solid #006a9c;
+    padding: 10px;
+    color: #006a9c;
+  }
+
   .login__container {
     width: 450px;
     border: 2px solid #006a9c;
@@ -174,7 +182,6 @@ export const PageArea = styled.div`
 
     .btnSubmitForgotPass {
       margin-top: 25px;
-      width: 120px !important;
       height: 40px;
       font-size: 20px;
       border-radius: 0px;
