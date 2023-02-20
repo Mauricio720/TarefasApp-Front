@@ -137,6 +137,7 @@ const Login = () => {
                 onChange={(e) => {
                   setLogin(e.target.value);
                 }}
+                placeholder="Digite seu login"
               />
             </div>
             <br />
@@ -150,6 +151,7 @@ const Login = () => {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                placeholder="Digite sua senha"
                 type="password"
               />
             </div>
